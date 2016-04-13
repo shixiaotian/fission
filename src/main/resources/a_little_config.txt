@@ -1,4 +1,5 @@
 jdbcUrl = jdbc:mysql://127.0.0.1/jfinal_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+fission_filesystem = jdbc:mysql://127.0.0.1/fission_filesystem?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
 user = root
 password =sxt123
 devMode = true

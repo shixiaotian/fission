@@ -35,11 +35,27 @@ public class DemoConfig extends JFinalConfig {
 		me.add("/", IndexController.class, "/index");	// 第三个参数为该Controller的视图存放路径
 		me.add("/blog", BlogController.class);			// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
 	}
-	
+
+	/**
+	 *
+	 * 开启demo数据库新的链接
+	 *
+	 * @return
+     */
 	public static C3p0Plugin createC3p0Plugin() {
 		return new C3p0Plugin(PropKit.get("jdbcUrl"), PropKit.get("user"), PropKit.get("password").trim());
 	}
-	
+
+	/**
+	 *
+	 * 开启裂变文件系统数据库链接
+	 * 新创建
+	 *
+	 * @return C3p0Plugin
+     */
+	public static C3p0Plugin createFissionFileSystemPlugin() {
+		return new C3p0Plugin(PropKit.get("jdbcUrl"), PropKit.get("user"), PropKit.get("password").trim());
+	}
 	/**
 	 * 配置插件
 	 */
@@ -47,7 +63,11 @@ public class DemoConfig extends JFinalConfig {
 		// 配置C3p0数据库连接池插件
 		C3p0Plugin C3p0Plugin = createC3p0Plugin();
 		me.add(C3p0Plugin);
-		
+
+		// 配置裂变文件系统c3p0数据库链接
+		C3p0Plugin fissionFileSystemC3p0Plugin = createFissionFileSystemPlugin();
+		me.add(fissionFileSystemC3p0Plugin);
+
 		// 配置ActiveRecord插件
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(C3p0Plugin);
 		me.add(arp);
