@@ -2,7 +2,7 @@ package com.demo.common.model;
 
 import javax.sql.DataSource;
 
-import com.demo.common.config.DemoConfig;
+import com.demo.common.config.WebConfig;
 import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.generator.Generator;
@@ -15,7 +15,7 @@ public class _JFinalDemoGenerator {
 	
 	public static DataSource getDataSource() {
 		PropKit.use("a_little_config.txt");
-		C3p0Plugin c3p0Plugin = DemoConfig.createC3p0Plugin();
+		C3p0Plugin c3p0Plugin = WebConfig.createC3p0Plugin();
 		c3p0Plugin.start();
 		return c3p0Plugin.getDataSource();
 	}

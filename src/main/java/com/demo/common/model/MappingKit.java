@@ -8,15 +8,20 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
  * Example:
  * public void configPlugin(Plugins me) {
  *     ActiveRecordPlugin arp = new ActiveRecordPlugin(...);
- *     _MappingKit.mapping(arp);
+ *     MappingKit.mapping(arp);
  *     me.add(arp);
  * }
  * </pre>
  */
-public class _MappingKit {
+public class MappingKit {
 
-	public static void mapping(ActiveRecordPlugin arp) {
+	public static void mappingDemoDB(ActiveRecordPlugin arp) {
 		arp.addMapping("blog", "id", Blog.class);
 	}
+
+	public static void mappingFissionFilesystemDB(ActiveRecordPlugin arp) {
+		arp.addMapping("file", "fileId", FissionFileSystem.class);
+	}
+
 }
 
