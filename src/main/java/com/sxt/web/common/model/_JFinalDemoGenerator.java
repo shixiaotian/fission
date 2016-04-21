@@ -1,12 +1,9 @@
-package com.demo.common.model;
+package com.sxt.web.common.model;
 
 import javax.sql.DataSource;
 
-import com.demo.common.config.WebConfig;
 import com.jfinal.kit.PathKit;
-import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.generator.Generator;
-import com.jfinal.plugin.c3p0.C3p0Plugin;
 
 /**
  * 在数据库表有任何变动时，运行一下 main 方法，极速响应变化进行代码重构
@@ -14,10 +11,11 @@ import com.jfinal.plugin.c3p0.C3p0Plugin;
 public class _JFinalDemoGenerator {
 	
 	public static DataSource getDataSource() {
-		PropKit.use("a_little_config.txt");
-		C3p0Plugin c3p0Plugin = WebConfig.createC3p0Plugin();
-		c3p0Plugin.start();
-		return c3p0Plugin.getDataSource();
+//		PropKit.use("a_little_config.txt");
+//		C3p0Plugin c3p0Plugin = WebConfig.createC3p0Plugin();
+//		c3p0Plugin.start();
+//		return c3p0Plugin.getDataSource();
+		return null;
 	}
 	
 	public static void main(String[] args) {

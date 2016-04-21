@@ -1,13 +1,13 @@
-package com.demo.filesystem;
+package com.sxt.web.blog;
 
-import com.demo.common.model.Blog;
+import com.sxt.web.common.model.Blog;
 import com.jfinal.core.Controller;
 import com.jfinal.validate.Validator;
 
 /**
  * FissionFileSystemValidator.
  */
-public class FissionFileSystemValidator extends Validator {
+public class BlogValidator extends Validator {
 	
 	protected void validate(Controller controller) {
 		validateRequiredString("blog.title", "titleMsg", "请输入Blog标题!");

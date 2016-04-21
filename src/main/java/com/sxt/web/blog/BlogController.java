@@ -1,6 +1,6 @@
-package com.demo.blog;
+package com.sxt.web.blog;
 
-import com.demo.common.model.Blog;
+import com.sxt.web.common.model.Blog;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 

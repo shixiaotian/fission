@@ -1,12 +1,9 @@
-package com.demo.filesystem;
+package com.sxt.web.filesystem;
 
-import com.demo.common.model.FissionFileSystem;
-import com.demo.filesystem.FissionFileSystemInterceptor;
-import com.demo.filesystem.FissionFileSystemValidator;
+import com.sxt.web.common.model.FissionFileSystem;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 /**
  * FissionFissionFileSystemController

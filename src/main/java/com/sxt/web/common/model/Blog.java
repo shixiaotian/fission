@@ -1,6 +1,6 @@
-package com.demo.common.model;
+package com.sxt.web.common.model;
 
-import com.demo.common.model.base.BaseBlog;
+import com.sxt.web.common.model.base.BaseBlog;
 import com.jfinal.plugin.activerecord.Page;
 
 /**

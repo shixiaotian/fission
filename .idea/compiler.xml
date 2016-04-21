@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="1.0-fission" />
+        <module name="fission" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="1.0-fission" target="1.5" />
+      <module name="fission" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
