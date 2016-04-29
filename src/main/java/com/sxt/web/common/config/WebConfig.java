@@ -30,7 +30,7 @@ public class WebConfig extends JFinalConfig {
 		//开发模式
 		me.setDevMode(false);
 		// 关闭action report
-		me.setReportAfterInvocation(false);
+//		me.setReportAfterInvocation(false);
 	}
 	
 	/**

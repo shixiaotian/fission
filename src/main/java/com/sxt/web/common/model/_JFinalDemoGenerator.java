@@ -11,7 +11,7 @@ import com.jfinal.plugin.activerecord.generator.Generator;
 public class _JFinalDemoGenerator {
 	
 	public static DataSource getDataSource() {
-//		PropKit.use("a_little_config.txt");
+//		PropKit.use("config.ini");
 //		C3p0Plugin c3p0Plugin = WebConfig.createC3p0Plugin();
 //		c3p0Plugin.start();
 //		return c3p0Plugin.getDataSource();
