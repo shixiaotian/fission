@@ -77,7 +77,7 @@ public interface AuthDB {
         /**
          * 删除标识
          */
-        public static final String delete = "delete";
+        public static final String deleted = "deleted";
 
     }
 

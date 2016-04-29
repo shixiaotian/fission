@@ -1,0 +1,13 @@
+权限系统 通讯协议
+
+返回报文
+{
+    code:200
+    data:true
+}
+
+请求
+get
+http://127.0.0.1/auth/land?userCode=aa&password=qweasd
+
+

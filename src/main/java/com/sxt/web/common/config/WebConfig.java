@@ -1,5 +1,6 @@
 package com.sxt.web.common.config;
 
+import com.sxt.auth.web.AuthController;
 import com.sxt.web.blog.BlogController;
 import com.sxt.web.common.model.mapping.DemoMappingKitImpl;
 import com.sxt.web.common.model.mapping.FissionAuthSystemMappingKitImpl;
@@ -40,6 +41,9 @@ public class WebConfig extends JFinalConfig {
 		me.add("/", IndexController.class, "/index");	// 第三个参数为该Controller的视图存放路径
 		me.add("/blog", BlogController.class);
 		me.add("/fissionFileSystem", FissionFileSystemController.class);	// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
+
+		// 权限系统部分
+		me.add("/auth", AuthController.class);
 	}
 
 	/**

@@ -1,14 +1,13 @@
 package com.sxt.auth.utils;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * 扩展Listutils
  *
- * Created by shixiaotian on 16/4/23.
+ * Created by xiaotian.shi on 16/4/23.
  *
  */
 public class ListUtils extends org.apache.commons.collections.ListUtils{
@@ -30,13 +29,29 @@ public class ListUtils extends org.apache.commons.collections.ListUtils{
         }
     }
 
-    public static void main(String arg[]) {
+    /**
+     * 判断集合是否不为空
+     *
+     * @param list
+     *
+     * @return boolean
+     */
+    public static boolean isNotEmpty(List list) {
 
-        List a=new ArrayList();
-
-
-        System.out.println(ListUtils.isEmpty(a));
+        if(ListUtils.isEmpty(list)) {
+            return false;
+        } else {
+            return true;
+        }
     }
+
+//    public static void main(String arg[]) {
+//
+//        List a=new ArrayList();
+//
+//
+//        System.out.println(ListUtils.isEmpty(a));
+//    }
 
 
 }

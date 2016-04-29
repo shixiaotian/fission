@@ -13,6 +13,7 @@
           <element id="library" level="project" name="Maven: freemarker:freemarker:2.3.2" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.6" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.20" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.0" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="fission/web/Web" />
