@@ -5,6 +5,7 @@ import com.sxt.auth.base.constant.AuthDB;
 import com.sxt.auth.model.base.BaseAuthModel;
 import com.sxt.auth.utils.ListUtils;
 import com.sxt.auth.utils.Sha1Utils;
+import com.sxt.auth.vo.Result;
 
 import java.util.List;
 
@@ -55,19 +56,28 @@ public class UserMD extends BaseAuthModel<UserMD> {
      *
      * @return
      */
-    public boolean checkPassword(String userCode, String password) {
+    public Result checkPassword(String userCode, String password, String ip) {
 
-        // 传入参数为null 返回null
-        if(StrKit.isBlank(userCode) || StrKit.isBlank(password)) {
-            return false;
+
+        // TODO 同一账号请求频率校验
+        Result frequencyResult = this.frequencyCheck();
+        if(frequencyResult != null) {
+            return frequencyResult;
         }
+
+        // TODO 登录地址校验
+        Result ipResult = this.frequencyCheck();
+        if(ipResult != null) {
+            return ipResult;
+        }
+        // 数据校验
 
         // 查询到用户
         UserMD userMD = UserMD.me.getUserByUserCode(userCode);
 
         // 未能查询到返回null
         if(userMD == null) {
-            return false;
+            return null;
         }
 
         // 对传入的密码sha1
@@ -78,16 +88,17 @@ public class UserMD extends BaseAuthModel<UserMD> {
         // 比对密码是否相同
         if(afterSha1Password.equals(dbPassword)) {
 
-            return true;
+            return null;
 
         } else {
 
-            return false;
+            return null;
 
         }
 
 
     }
+
 
     /**
      *
@@ -145,6 +156,37 @@ public class UserMD extends BaseAuthModel<UserMD> {
      */
     public List<UserMD> getUserFromRedis(UserMD userMD) {
         return null;
+    }
+
+    // TODO 同一账号请求频率检测
+    private Result frequencyCheck() {
+
+        // 获取频率，判断是否正常
+        // 正常直接返回NULL
+        // 不正常返回报文
+
+        // 返回集合
+        Result result = new Result();
+        // TODO 协议
+        result.setCode("");
+        result.setData("请求频率过高，请通过安全验证后再登录！");
+
+        return result;
+    }
+
+    // ip地址检测
+    private Result ipCheck(){
+        // 获取频率，判断是否正常
+        // 正常直接返回NULL
+        // 不正常返回报文
+
+        // 返回集合
+        Result result = new Result();
+        // TODO 协议
+        result.setCode("");
+        result.setData("登陆地址有误，请查收异常邮件！");
+
+        return result;
     }
 
 }

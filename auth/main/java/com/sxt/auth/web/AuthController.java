@@ -1,7 +1,9 @@
 package com.sxt.auth.web;
 
+import com.jfinal.kit.StrKit;
 import com.sxt.auth.base.BaseAuthController;
 import com.sxt.auth.model.UserMD;
+import com.sxt.auth.vo.Result;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,18 +26,32 @@ public class AuthController extends BaseAuthController {
         // 获取前端传入参数
         String userCode = this.getPara("userCode");
         String password = this.getPara("password");
+        String ip =this.getIp();
+
+        // 参数校验
+        if(this.validation(userCode, password)) {
+            return;
+        }
 
         // 查询数据信息
-        boolean result = UserMD.me.checkPassword(userCode, password);
-
-        // 构建返回结果集
-        Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("code", 200);
-        resultMap.put("data", result);
+        Result result = UserMD.me.checkPassword(userCode, password, ip);
 
         // 返回数据
-        this.renderJson(resultMap);
+        this.renderJson(result);
 
+    }
+
+    // 参数校验
+    private boolean validation(String userCode, String password){
+        // 传入参数为null 返回null
+        if(StrKit.isBlank(userCode) || StrKit.isBlank(password)) {
+
+            // 输出信息
+            this.renderFailJson("账号和密码不能为空！");
+
+            return true;
+        }
+        return false;
     }
 
 }
