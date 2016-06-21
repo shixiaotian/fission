@@ -9,7 +9,7 @@
  Target Server Version : 50711
  File Encoding         : utf-8
 
- Date: 04/13/2016 16:54:08 PM
+ Date: 06/21/2016 16:11:02 PM
 */
 
 SET NAMES utf8;
@@ -27,7 +27,14 @@ CREATE TABLE `file` (
   `fileOnwerId` char(32) NOT NULL,
   `fileOnwerFrom` char(255) NOT NULL,
   `fileSize` char(20) NOT NULL,
-  PRIMARY KEY (`file_id`)
+  PRIMARY KEY (`fileId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `file`
+-- ----------------------------
+BEGIN;
+INSERT INTO `file` VALUES ('test', 'test', 'test', '/test', 'test', 'test', '123');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
